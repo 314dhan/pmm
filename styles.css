@@ -1,0 +1,22 @@
+body {
+    background-color: #f4f4f4;
+    /* Warna latar belakang yang lebih cerah */
+}
+
+.code-block {
+    background-color: #e9ecef;
+    /* Warna latar belakang untuk kode */
+    border-left: 5px solid #007bff;
+    /* Garis samping untuk menandai blok kode */
+}
+
+footer {
+    padding: 20px 0;
+    /* Tambahkan padding di footer */
+    background-color: #343a40;
+    /* Warna latar belakang footer */
+    border-top-left-radius: 15px;
+    /* Radius di sudut kiri atas */
+    border-top-right-radius: 15px;
+    /* Radius di sudut kanan atas */
+}

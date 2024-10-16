@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Review aplikasi To-Do List untuk mengelola tugas dengan mudah.">
+    <title>Review Aplikasi To-Do List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Review Aplikasi To-Do List</h1>
+        <p class="text-center">Aplikasi sederhana untuk menambahkan dan mengelola tugas.</p>
+
+        <h2>1. Tambah Tugas</h2>
+        <center>
+            <img src="images/gambar 1.png" alt="Tambah Tugas" class="img-fluid">
+        </center>
+        <p>Pada bagian ini, pengguna dapat memasukkan tugas baru yang ingin ditambahkan.</p>
+
+        <div class="code-block">
+            <pre><code>Button btnSend = view.findViewById(R.id.btnKirim);
+btnSend.setOnClickListener(v -> {
+    sharedViewModel.selectedItem(etTask.getText().toString());
+});</code></pre>
+        </div>
+
+        <h2>2. Daftar Tugas</h2>
+        <center>
+            <img src="images/gambar 2.png" alt="Daftar Tugas" class="img-fluid">
+        </center>
+        <p>Setelah tugas ditambahkan, pengguna dapat melihat daftar tugas yang telah dibuat.</p>
+
+        <div class="code-block">
+            <pre><code>ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), R.layout.list_item, R.id.tvTask, new ArrayList<>());
+lvTasks.setAdapter(adapter);</code></pre>
+        </div>
+
+        <h2>3. Tugas Ditambahkan</h2>
+        <center>
+            <img src="images/gambar 3.png" alt="Toast Tugas Ditambahkan" class="img-fluid">
+        </center>
+        <p>Setelah menambahkan tugas, pengguna akan mendapatkan notifikasi bahwa tugas telah ditambahkan.</p>
+
+        <div class="code-block">
+            <pre><code>Toast.makeText(getContext(), "Tugas ditambahkan", Toast.LENGTH_SHORT).show();</code></pre>
+        </div>
+    </div>
+    <footer class="text-center mt-5 bg-dark">
+        <p class="text-light">&copy; 2024 Dhan.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
