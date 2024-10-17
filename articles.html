@@ -14,14 +14,6 @@
 
     <div id="navbar"></div>
 
-    <!-- Hero Section -->
-    <div class="jumbotron jumbotron-fluid text-center bg-info text-white">
-        <div class="container">
-            <h1 class="display-4">Welcome at My Blog Ramadhan!</h1>
-            <p class="lead">A place for simple project documentation and application reviews.</p>
-        </div>
-    </div>
-
     <!-- Daftar Artikel -->
     <div class="container my-5">
         <h2 class="text-center mb-4">Lates Article</h2>
@@ -73,7 +65,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+
     <script>
         fetch('partials/navbar.html')
             .then(response => response.text())
@@ -81,8 +73,8 @@
                 document.getElementById('navbar').innerHTML = data;
             })
             .catch(error => console.error('Error loading navbar:', error));
-            const navbar = document.getElementById('mainNavbar');
-                console.log(navbar);
+        const navbar = document.getElementById('mainNavbar');
+        console.log(navbar);
 
     </script>
 

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Blog Dhan</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div id="navbar"></div>
+
+    <!-- About Section -->
+    <div class="container mt-5">
+        <h1 class="text-center">About Me</h1>
+        <p class="text-center">Learn more about who I am and what I do.</p>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <img src="images/about/Cat.jpg" class="img-fluid rounded" alt="Profile Picture">
+            </div>
+            <div class="col-md-6">
+                <h2>Hello, I'm Ramadhan</h2>
+                <p>
+                    I am a coding teacher and also a computer science student who is passionate about sharing knowledge.
+                    Through this blog, I aim to inspire others to learn programming and explore the world of technology.
+                </p>
+                <p>
+                    Aside from teaching, I am always working on personal projects and improving my skills in software
+                    development.
+                </p>
+                <p>Feel free to connect with me on:</p>
+                <ul class="list-unstyled">
+                    <li><strong>GitHub:</strong> <a href="https://github.com/314dhan" target="_blank">314dhan</a></li>
+                    <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ramadhan-50973b1aa/"
+                            target="_blank">Ramadhan</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center bg-dark text-light py-3 mt-5">
+        <p>&copy; 2024 Ramadhan. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        fetch('partials/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+        const navbar = document.getElementById('mainNavbar');
+        console.log(navbar);
+
+    </script>
+    
+</body>
+
+</html>
