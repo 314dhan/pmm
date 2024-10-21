@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Blog Dhan</title>
-    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -17,7 +16,14 @@
     <!-- Hero Section -->
     <div class="jumbotron jumbotron-fluid text-center bg-info text-white">
         <div class="container">
-            <h1 class="display-4">Welcome at My Blog Ramadhan!</h1>
+            <h1 class="display-4">
+                Welcome to My Blog
+            </h1>
+            <h1>
+                <span class="text-wrapper">
+                    <span id="changingText">Ramadhan</span>!
+                </span>
+            </h1>
             <p class="lead">A place for simple project documentation and application reviews.</p>
         </div>
     </div>
@@ -26,7 +32,6 @@
     <div class="container my-5">
         <h2 class="text-center mb-4">Lates Article</h2>
         <div class="row">
-            <!-- Artikel 1 -->
             <div class="col-md-4">
                 <div class="card mb-4">
                     <img src="images/1. todolist/todo list.png" class="card-img-top" alt="Review To-Do List">
@@ -37,55 +42,16 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Artikel 2 -->
-            <!-- <div class="col-md-4">
-                <div class="card mb-4">
-                    <img src="images/gambar2.png" class="card-img-top" alt="Aplikasi Kalender">
-                    <div class="card-body">
-                        <h5 class="card-title">Review Aplikasi Kalender</h5>
-                        <p class="card-text">Kalender digital untuk manajemen waktu yang efektif.</p>
-                        <a href="artikel2.html" class="btn btn-primary">Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- Artikel 3 -->
-            <!-- <div class="col-md-4">
-                <div class="card mb-4">
-                    <img src="images/gambar3.png" class="card-img-top" alt="Aplikasi Catatan">
-                    <div class="card-body">
-                        <h5 class="card-title">Review Aplikasi Catatan</h5>
-                        <p class="card-text">Simpan catatan penting dengan aplikasi yang simpel.</p>
-                        <a href="artikel3.html" class="btn btn-primary">Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="text-center bg-dark text-light py-3">
         <p>&copy; 2024 Dhan. All rights reserved.</p>
     </footer>
 
-    <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
-    <script>
-        fetch('partials/navbar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading navbar:', error));
-            const navbar = document.getElementById('mainNavbar');
-                console.log(navbar);
-
-    </script>
-
+    <script src="js/main.js"></script>
 </body>
-
 </html>

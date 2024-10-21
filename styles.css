@@ -1,10 +1,50 @@
 body {
     background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.jumbotron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+    margin: 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.text-wrapper {
+    display: inline-block;
+    position: relative;
+    height: 1em;
+    overflow: hidden;
+    line-height: -1em;
+}
+
+#changingText {
+    display: inline-block;
+    animation: bounce 0.5s infinite alternate;
+    white-space: nowrap;
+    /* Cegah teks terpotong menjadi beberapa baris */
+    color: #fff;
+}
+
+/* Animasi bouncing */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
 }
 
 footer {
-    padding: 20px 0;
     background-color: #343a40;
+    padding: 20px 0;
+    text-align: center;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
