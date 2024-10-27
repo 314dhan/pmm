@@ -12,8 +12,12 @@
 </head>
 
 <body>
-    <div class="container mt-5">
-        <a href="../index.html" class="btn btn-secondary mb-4">Back</a>
+
+    <div class="jumbotron jumbotron-fluid text-center bg-info text-white">
+        <div class="container">
+            <h1 class="display-4">To do list</h1>
+            <p class="lead">Review aplikasi to do list.</p>
+        </div>
     </div>
 
     <div class="container mt-5">
@@ -22,7 +26,7 @@
 
         <h2>1. Tambah Tugas</h2>
         <center>
-            <img src="../images/1. todolist/gambar 1.png" alt="Tambah Tugas" class="img-fluid">
+            <img src="../../images/1. todolist/gambar 1.png" alt="Tambah Tugas" class="img-fluid">
         </center>
         <p>Pada bagian ini, pengguna dapat memasukkan tugas baru yang ingin ditambahkan.</p>
 
@@ -35,7 +39,7 @@ btnSend.setOnClickListener(v -> {
 
         <h2>2. Daftar Tugas</h2>
         <center>
-            <img src="../images/1. todolist/gambar 2.png" alt="Daftar Tugas" class="img-fluid">
+            <img src="../../images/1. todolist/gambar 2.png" alt="Daftar Tugas" class="img-fluid">
         </center>
         <p>Setelah tugas ditambahkan, pengguna dapat melihat daftar tugas yang telah dibuat.</p>
 
@@ -46,7 +50,7 @@ lvTasks.setAdapter(adapter);</code></pre>
 
         <h2>3. Tugas Ditambahkan</h2>
         <center>
-            <img src="../images/1. todolist/gambar 3.png" alt="Toast Tugas Ditambahkan" class="img-fluid">
+            <img src="../../images/1. todolist/gambar 3.png" alt="Toast Tugas Ditambahkan" class="img-fluid">
         </center>
         <p>Setelah menambahkan tugas, pengguna akan mendapatkan notifikasi bahwa tugas telah ditambahkan.</p>
 
@@ -54,6 +58,11 @@ lvTasks.setAdapter(adapter);</code></pre>
             <pre><code>Toast.makeText(getContext(), "Tugas ditambahkan", Toast.LENGTH_SHORT).show();</code></pre>
         </div>
     </div>
+
+    <div class="container mt-5">
+        <a href="../../index.html" class="btn btn-secondary mb-4 w-100">Back</a>
+    </div>
+
     <footer class="text-center mt-5 bg-dark">
         <p class="text-light">&copy; 2024 Dhan.</p>
     </footer>

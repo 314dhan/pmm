@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constraint Layout - Blog Dhan</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="constraintlayout.css">
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid text-center bg-info text-white">
+        <div class="container">
+            <h1 class="display-4">Constraint Layout in Android</h1>
+            <p class="lead">Penjelasan lengkap tentang Constraint Layout beserta kode XML-nya.</p>
+        </div>
+    </div>
+
+    <div class="container text-center my-4">
+        <img src="../../images/2. constraintlayout/constraintlayout.png" alt="Example of Constraint Layout"
+            class="img-fluid">
+    </div>
+
+    <div class="container my-5">
+        <h2>Constraint Layout: Apa itu dan Mengapa Digunakan?</h2>
+        <p>
+            Constraint Layout adalah salah satu jenis layout yang sangat powerful di Android. Layout ini digunakan untuk
+            membuat antarmuka pengguna yang fleksibel dan mudah disesuaikan dengan berbagai ukuran layar.
+            Dengan menggunakan Constraint Layout, kita bisa mengatur elemen-elemen UI berdasarkan posisi relatif atau
+            perbandingan dengan elemen lain, baik itu posisi atas, bawah, kanan, kiri, atau di tengah.
+        </p>
+    </div>
+
+    <div class="container my-5">
+        <h3>Contoh Kode XML Constraint Layout</h3>
+        <button onclick="copyText()" class="btn btn-primary mb-3">Copy Code</button>
+        <pre><code id="xmlCode">
+    &lt;?xml version="1.0" encoding="utf-8"?&gt;
+    &lt;!--
+      Copyright (C) 2017 The Android Open Source Project
+      Licensed under the Apache License, Version 2.0 (the "License");
+      you may not use this file except in compliance with the License.
+      You may obtain a copy of the License at
+           http://www.apache.org/licenses/LICENSE-2.0
+      Unless required by applicable law or agreed to in writing, software
+      distributed under the License is distributed on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      See the License for the specific language governing permissions and
+      limitations under the License.
+    --&gt;
+    
+    &lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"&gt;
+    
+        &lt;Button
+            android:id="@+id/button4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/button_1"
+            app:layout_constraintDimensionRatio="w,16:9"
+            app:layout_constraintBottom_toTopOf="@+id/button5"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="19dp"
+            app:layout_constraintLeft_toLeftOf="parent" /&gt;
+    
+        &lt;Button
+            android:id="@+id/button5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/button_text"
+            app:layout_constraintBottom_toTopOf="@+id/button6"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintLeft_toLeftOf="parent" /&gt;
+    
+        &lt;Button
+            android:id="@+id/button6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/button_text_12"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintBottom_creator="1"
+            app:layout_constraintBottom_toTopOf="@+id/button7"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_constraintLeft_creator="1"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintLeft_toLeftOf="parent" /&gt;
+    
+        &lt;TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/arrange"
+            android:textSize="30sp"
+            tools:layout_constraintTop_creator="1"
+            tools:layout_constraintRight_creator="1"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="16dp"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" /&gt;
+    
+        &lt;Button
+            android:id="@+id/button7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/button_text"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintBottom_creator="1"
+            app:layout_constraintBottom_toTopOf="@+id/button8"
+            app:layout_constraintRight_toRightOf="@+id/button6"
+            tools:layout_constraintLeft_creator="1"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintLeft_toLeftOf="@+id/button6" /&gt;
+    
+        &lt;Button
+            android:id="@+id/button8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/button_text"
+            tools:layout_constraintRight_creator="1"
+            app:layout_constraintRight_toRightOf="@+id/button7"
+            tools:layout_constraintLeft_creator="1"
+            app:layout_constraintLeft_toLeftOf="@+id/button7"
+            app:layout_constraintBottom_toTopOf="@+id/button27"
+            android:layout_marginBottom="104dp"
+            app:layout_constraintHorizontal_bias="1.0" /&gt;
+    
+        &lt;Button
+            android:id="@+id/button27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button"
+            app:layout_constraintRight_toLeftOf="@+id/button29"
+            app:layout_constraintLeft_toRightOf="@+id/button28"
+            tools:layout_constraintBottom_creator="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="38dp" /&gt;
+    
+        &lt;Button
+            android:id="@+id/button28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button"
+            app:layout_constraintRight_toLeftOf="@+id/button27"
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:layout_constraintBottom_creator="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="38dp" /&gt;
+    
+        &lt;Button
+            android:id="@+id/button29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/button27"
+            tools:layout_constraintBottom_creator="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="38dp" /&gt;
+    
+    &lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;
+        </code></pre>
+    </div>
+
+    <div class="container">
+    <p>src: <a
+        href="https://github.com/googlearchive/android-ConstraintLayoutExamples/blob/master/constraintlayout/src/main/res/layout/constraint_example_2.xml">github</a>
+    </p>
+    </div>
+
+    <div class="container mt-5">
+        <a href="../../index.html" class="btn btn-secondary mb-4 w-100" id="backBtn">Back</a>
+    </div>
+
+    <footer class="text-center bg-dark text-light py-3">
+        <p>&copy; 2024 Dhan. All rights reserved.</p>
+    </footer>
+</body>
+<script src="2. script.js"></script>
+
+</html>
