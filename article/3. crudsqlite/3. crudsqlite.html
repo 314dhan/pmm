@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review DatabaseHelper - Blog Dhan</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="constraintlayout.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="jumbotron jumbotron-fluid text-center bg-info text-white">
+        <div class="container">
+            <h1 class="display-4">DatabaseHelper Review</h1>
+            <p class="lead">Penjelasan dan analisis lengkap tentang implementasi `DatabaseHelper` di Android.</p>
+        </div>
+    </div>
+
+    <!-- Image Section -->
+    <div class="container text-center my-4">
+        <img src="../../images/2.databasehelper/database_structure.png" alt="Database Structure" class="img-fluid">
+    </div>
+
+    <!-- Introduction -->
+    <div class="container my-5">
+        <h2>Apa itu DatabaseHelper?</h2>
+        <p>
+            `DatabaseHelper` adalah sebuah class yang digunakan untuk mengelola database SQLite di aplikasi Android.
+            Class ini mempermudah pembuatan, pembaruan, dan pengelolaan data menggunakan API bawaan Android. Berikut
+            adalah detail tentang cara kerjanya.
+        </p>
+    </div>
+
+    <!-- Review Kode -->
+    <div class="container my-5">
+        <h3>Penjelasan Kode DatabaseHelper.java</h3>
+        <p>Kode berikut bertujuan untuk:</p>
+        <ul>
+            <li>Membuat tabel SQLite dengan nama <strong>students</strong> yang memiliki kolom <code>ID</code>,
+                <code>NAME</code>, dan <code>AGE</code>.
+            </li>
+            <li>Memasukkan data baru ke dalam tabel.</li>
+            <li>Mengambil semua data dari tabel.</li>
+            <li>Menghapus data berdasarkan <code>ID</code>.</li>
+            <li>Memperbarui data berdasarkan <code>ID</code>.</li>
+        </ul>
+        <button onclick="copyText()" class="btn btn-primary mb-3">Copy Code</button>
+        <pre><code id="javaCode">
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class DatabaseHelper extends SQLiteOpenHelper {
+    private static final String DATABASE_NAME = "student.db";
+    private static final String TABLE_NAME = "students";
+    private static final String COL_1 = "ID";
+    private static final String COL_2 = "NAME";
+    private static final String COL_3 = "AGE";
+
+    public DatabaseHelper(Context context) {
+        super(context, DATABASE_NAME, null, 1);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL("CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, AGE INTEGER)");
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        onCreate(db);
+    }
+
+    public boolean insertData(String name, int age) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_2, name);
+        contentValues.put(COL_3, age);
+        long result = db.insert(TABLE_NAME, null, contentValues);
+        return result != -1;
+    }
+
+    public ArrayList<HashMap<String, String>> getAllData() {
+        ArrayList<HashMap<String, String>> dataList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                HashMap<String, String> data = new HashMap<>();
+                data.put("ID", cursor.getString(0));
+                data.put("NAME", cursor.getString(1));
+                data.put("AGE", cursor.getString(2));
+                dataList.add(data);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return dataList;
+    }
+
+    public boolean deleteData(String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int result = db.delete(TABLE_NAME, "ID = ?", new String[]{id});
+        return result > 0;
+    }
+
+    public boolean updateData(String id, String name, int age) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_2, name);
+        contentValues.put(COL_3, age);
+        int result = db.update(TABLE_NAME, contentValues, "ID = ?", new String[]{id});
+        return result > 0;
+    }
+}
+        </code></pre>
+    </div>
+
+    <!-- Analisis -->
+    <div class="container my-5">
+        <h3>Analisis dan Catatan</h3>
+        <p>
+            Beberapa poin penting dari kode di atas:
+        </p>
+        <ul>
+            <li>
+                <strong>Pembuatan Database:</strong> `onCreate` membuat tabel dengan struktur sederhana, tetapi cukup
+                fleksibel untuk kasus penggunaan umum.
+            </li>
+            <li>
+                <strong>Insert Data:</strong> Menggunakan `ContentValues` untuk menyisipkan data dengan aman.
+            </li>
+            <li>
+                <strong>Update dan Delete:</strong> Fungsi ini memungkinkan pembaruan dan penghapusan data secara
+                spesifik
+                menggunakan parameter <code>ID</code>.
+            </li>
+            <li>
+                <strong>Peningkatan Versi:</strong> `onUpgrade` cukup sederhana, tetapi dapat ditingkatkan dengan logika
+                migrasi data.
+            </li>
+        </ul>
+    </div>
+
+    <!-- Sumber -->
+    <div class="container">
+        <p>src: <a
+                href="https://github.com/googlearchive/android-ConstraintLayoutExamples/blob/master/constraintlayout/src/main/res/layout/constraint_example_2.xml">
+                github</a>
+        </p>
+    </div>
+
+    <!-- Back Button -->
+    <div class="container mt-5">
+        <a href="../../index.html" class="btn btn-secondary mb-4 w-100" id="backBtn">Back</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center bg-dark text-light py-3">
+        <p>&copy; 2024 Dhan. All rights reserved.</p>
+    </footer>
+</body>
+<script src="2. script.js"></script>
+
+</html>
